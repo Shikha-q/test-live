@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>الصفحة الرئيسية</title>
+  <script src="auth.js"></script>
+</head>
+<body onload="checkAuth()">
+  <h1>مرحبًا بك في الصفحة الرئيسية</h1>
+  <a href="profile.html">الملف الشخصي</a>
+  <button onclick="doLogout()">تسجيل خروج</button>
+
+  <script>
+    function checkAuth() {
+      if (!checkLogin()) {
+        window.location.href = 'login.html';
+      }
+    }
+    
+    function doLogout() {
+      logout();
+      window.location.href = 'login.html';
+    }
+  </script>
+</body>
+</html>
