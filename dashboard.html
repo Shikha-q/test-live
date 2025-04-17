@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة التحكم - نظام الإدارة</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2b6cb0;
+      --primary-dark: #2c5282;
+      --primary-light: #bee3f8;
+      --secondary: #4c51bf;
+      --success: #38a169;
+      --danger: #e53e3e;
+      --warning: #dd6b20;
+      --info: #3182ce;
+      --light: #f7fafc;
+      --dark: #1a202c;
+      --gray: #718096;
+      --border-radius: 10px;
+      --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background-color: #f8fafc;
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .app-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #edf2f7;
+    }
+    
+    .app-title {
+      color: var(--primary);
+      font-size: 28px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .user-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background-color: var(--primary);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 600;
+      font-size: 16px;
+    }
+    
+    .logout-btn {
+      background: none;
+      border: none;
+      color: var(--danger);
+      cursor: pointer;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .dashboard-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    
+    .dashboard-card {
+      background: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: 25px;
+      transition: var(--transition);
+      text-align: center;
+      cursor: pointer;
+    }
+    
+    .dashboard-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+    
+    .card-icon {
+      font-size: 48px;
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+    
+    .card-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    
+    .card-desc {
+      color: var(--gray);
+      font-size: 14px;
+    }
+    
+    @media (max-width: 768px) {
+      .app-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+      
+      .user-info {
+        width: 100%;
+        justify-content: space-between;
+      }
+      
+      .dashboard-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="app-header">
+      <h1 class="app-title">
+        <i class="fas fa-tachometer-alt"></i> لوحة التحكم
+      </h1>
+      <div class="user-info">
+        <div class="user-avatar" id="userAvatar"></div>
+        <button class="logout-btn" id="logoutBtn">
+          <i class="fas fa-sign-out-alt"></i> تسجيل الخروج
+        </button>
+      </div>
+    </div>
+    
+    <div class="dashboard-cards">
+      <div class="dashboard-card" onclick="window.location.href='certificates.html'">
+        <div class="card-icon">
+          <i class="fas fa-truck-moving"></i>
+        </div>
+        <h3 class="card-title">إدارة الشهادات</h3>
+        <p class="card-desc">تسجيل ومتابعة شهادات السيارات</p>
+      </div>
+      
+      <div class="dashboard-card" onclick="alert('هذه الواجهة قيد التطوير')">
+        <div class="card-icon">
+          <i class="fas fa-file-invoice-dollar"></i>
+        </div>
+        <h3 class="card-title">الإيرادات</h3>
+        <p class="card-desc">إدارة الإيرادات والتقارير المالية</p>
+      </div>
+      
+      <div class="dashboard-card" onclick="alert('هذه الواجهة قيد التطوير')">
+        <div class="card-icon">
+          <i class="fas fa-money-bill-wave"></i>
+        </div>
+        <h3 class="card-title">المصروفات</h3>
+        <p class="card-desc">تسجيل ومتابعة المصروفات</p>
+      </div>
+      
+      <div class="dashboard-card" onclick="alert('هذه الواجهة قيد التطوير')">
+        <div class="card-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <h3 class="card-title">إدارة الموظفين</h3>
+        <p class="card-desc">إدارة بيانات الموظفين والصلاحيات</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // تحميل بيانات المستخدم من localStorage
+    const userData = JSON.parse(localStorage.getItem('currentUser'));
+    
+    if (!userData) {
+      // إذا لم يكن هناك مستخدم مسجل، توجيه إلى صفحة الدخول
+      window.location.href = "login.html";
+    } else {
+      // عرض بيانات المستخدم
+      document.getElementById('userAvatar').textContent = 
+        userData.name.split(' ').map(n => n[0]).join('').toUpperCase();
+      
+      // تسجيل الخروج
+      document.getElementById('logoutBtn').addEventListener('click', function() {
+        localStorage.removeItem('currentUser');
+        window.location.href = "login.html";
+      });
+    }
+  </script>
+</body>
+</html>
